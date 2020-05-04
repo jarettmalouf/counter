@@ -1,13 +1,13 @@
 body {
-    background: white;
-    color: black;
+    background: rgb(151, 234, 245);
+    color: rgb(63, 158, 221);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 0;
+    margin: auto;
     padding: 0;
 }
+/* HEADER */
 
 header {
-    background: red;
     height: 200px;
     padding: 20px;
 }
@@ -20,6 +20,13 @@ h1 {
     margin: 50px 50px 50px 50px;
     text-align: center;
     font-size: 80px;
+}
+
+@media screen and (max-width: 625px) {
+    h1 {
+        font-size: 50px;
+        height: 67px;
+    }
 }
 
 ul {
@@ -45,8 +52,9 @@ a:hover {
     color: green;
 }
 
+/* SCOREBOARD */
+
 .scoreboard {
-    background-color: green;
     display: flex;
 }
 
@@ -58,16 +66,78 @@ a:hover {
 }
 
 .buttons {
-    background: blue;
+    border: circle;
+    text-align: center;
+    font-size: 16px;
+    justify-content: center;
     display: flex;
-    height: 120px;
 }
 
-.buttons div button {
+.buttons div {
     display: inline-block;
     margin: auto;
     text-align: center;
 }
+
+.buttons div button {
+    border-radius: 5px;
+    margin: 5px;
+    height: auto;
+    width: auto;
+    font-size: 25px;
+}
+
+/* SPORTS */
+
+.sports ul {
+    height: 200px;
+    text-align: center;
+    font-size: 16px;
+    justify-content: center;
+    display: flex;
+    padding: 20px;
+}
+
+.sports figcaption {
+    position: sticky;
+}
+.sports img {
+    height: 100px;
+    width: auto;
+}
+
+/* CONTACT PAGE */
+
+.contact-info {
+    height: 500px;
+    color: rgb(47, 179, 240);
+}
+
+.contact-info img {
+    height: 400px;
+    width: auto;
+}
+
+#main-ul {    
+    justify-content: center;
+    display: flex;
+    padding: 20px;
+}
+
+figure figcaption {
+    text-align: center;
+}
+
+.bio {
+    text-align: left;
+    position: static;
+}
+
+#name {
+    font-size: 30px;
+}
+
+/* FOOTER */
 
 footer {
     padding: 20px;
