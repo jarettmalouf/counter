@@ -1,148 +1,172 @@
 body {
-    background: rgb(151, 234, 245);
-    color: rgb(63, 158, 221);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: auto;
-    padding: 0;
+  background: rgb(151, 234, 245);
+  color: rgb(63, 158, 221);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: auto;
+  padding: 0;
 }
 /* HEADER */
 
 header {
-    height: 200px;
-    padding: 20px;
+  height: 200px;
+  padding: 20px;
 }
 
 h1 {
-    background-color: rgb(47, 179, 240);
-    color: white;
-    border-radius: 50px 20px 50px 20px;
-    height: 100px;
-    margin: 50px 50px 50px 50px;
-    text-align: center;
-    font-size: 80px;
+  background-color: rgb(47, 179, 240);
+  color: white;
+  border-radius: 50px 20px 50px 20px;
+  height: 100px;
+  margin: 50px 50px 50px 50px;
+  text-align: center;
+  font-size: 80px;
 }
 
 @media screen and (max-width: 625px) {
-    h1 {
-        font-size: 50px;
-        height: 67px;
-    }
+  h1 {
+    font-size: 50px;
+    height: 67px;
+  }
 }
 
+/* Definitely makes sense in the nav bar  and bio pages. 
+I was suprised how it was used in the sports page. not sure how i feel about it. I think ul's in general
+are meant to  have text children, and the sports page children in the ul is pretty complex. May help with accessibility, but not sure.
+i'm roughly neutral on the sports page choice. */
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 nav ul {
-    text-align: left;
+  text-align: left;
 }
 
 nav li {
-    display: inline-block;
-    margin-right: 20px;
-    padding: 2px;
+  display: inline-block;
+  margin-right: 20px;
+  padding: 2px;
 }
 
 header a {
-    color: rgb(47, 179, 240);
-    text-decoration: none;
+  color: rgb(47, 179, 240);
+  text-decoration: none;
 }
 
 a:hover {
-    color: green;
+  color: green;
 }
 
 /* SCOREBOARD */
 
+/* BENJI: Maybe could have abstracted this into a reusabled flex utility class, but doesn't hurt to have classes for important parts of the code */
 .scoreboard {
-    display: flex;
+  display: flex;
 }
 
+/* BENJI: This selector will affect all nested divs. Adding > will only target immediate children
+ * These  are important parts of your scoreboard, and the div selector is vague. Adding a classname and selecting
+ * for it would be more readable, like .scoreboard .score 
+ * inline block works here, but I like using flexbox better than inline block since things can get tricky with 
+ * inline block eventually and flexbox is more powerful and declarative.
+*/
 .scoreboard div {
-    display: inline-block;
-    font-size: 300px;
-    margin: auto;
-    text-align: center;
+  font-size: 300px;
+  margin: auto;
+  text-align: center;
 }
 
+/* BENJI: in a bigger app, you'd probably have lots of buttons. 
+ * Having a more specific classname is good practice, or turn this into a utility function like .buttons-wrapper or .buttons-container
+ */
 .buttons {
-    height: 80px;
-    border: circle;
-    text-align: center;
-    font-size: 16px;
-    justify-content: center;
-    display: flex;
+  height: 80px;
+  border: circle;
+  text-align: center;
+  font-size: 16px;
+  justify-content: center;
+  display: flex;
 }
 
 .buttons div {
-    display: inline-block;
-    margin: auto;
-    text-align: center;
+  display: inline-block;
+  margin: auto;
+  text-align: center;
 }
 
+/* BENJI: these generic tag selectors like div button are fragile since if you change your div to somethign else,
+ * your styling would break. Having classes makes things more readable in general so someone looking at your css or your html
+ * can get an idea of your intent without having to jump around between files. I get there's a buttons wrapper with buttons inside, but the
+ * div in the middle is mysterious until i go to the html page.
+ */
 .buttons div button {
-    border-radius: 5px;
-    margin: 5px;
-    height: auto;
-    width: auto;
-    font-size: 25px;
+  border-radius: 5px;
+  margin: 5px;
+  height: auto;
+  width: auto;
+  font-size: 25px;
 }
 
 /* SPORTS */
 
+/* BENJI: The sports class name is a little vague.  */
 .sports ul {
-    height: 200px;
-    text-align: center;
-    font-size: 16px;
-    justify-content: center;
-    display: flex;
-    padding: 20px;
+  /* height: 200px; BENJI: This height seems unnecessary*/
+  text-align: center;
+  font-size: 16px;
+  justify-content: center;
+  display: flex;
+  padding: 20px;
 }
 
 .sports figcaption {
-    position: sticky;
+  /* position: sticky; BENJI: I don't see a ux change when commenting this out. Why  position sticky here? */
 }
 .sports img {
-    height: 100px;
-    width: auto;
+  height: 100px;
+  /* width: auto; BENJI: width auto is unnecessary since the height above will determine the width regardless */
 }
 
 /* CONTACT PAGE */
 
 .contact-info {
-    height: 500px;
-    color: rgb(47, 179, 240);
+  /* height: 500px; BENJI: height not necesssary here  since  it's just  going to be the height to fit its children anyways*/
+  color: rgb(47, 179, 240);
 }
 
 .contact-info img {
-    height: 400px;
-    width: auto;
+  height: 400px;
+  /* width: auto; BENJI: see other case where width was auto */
 }
 
-#main-ul {    
-    justify-content: center;
-    display: flex;
-    padding: 20px;
+/* BENJI: I dont think you need to us ul in so many places here. I've seen them mostly used in traditiona text lists, but probably doesn't hurt
+ * The class name doesn't need to include that it's a ul. it's also a little vague what main-ul means without having to look at the html structure.
+ * What this class is doing is more creating a flex container and centering it. You probably could abstract this
+ * into a new class that you could reuse elsewhere like class="centered-row" or something 
+*/
+#main-ul {
+  justify-content: center;
+  display: flex;
+  padding: 20px;
 }
 
 figure figcaption {
-    text-align: center;
+  text-align: center;
 }
 
 .bio {
-    text-align: left;
-    position: static;
+  text-align: left;
+  /* position: static; BENJI: static not necessary since everything is static by default*/
 }
 
 #name {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 /* FOOTER */
 
 footer {
-    padding: 20px;
-    background: grey;
-    color: white;
-    text-align: center;
+  padding: 20px;
+  background: grey;
+  color: white;
+  text-align: center;
 }

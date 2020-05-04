@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Counter</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/sports.html">Sports</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <section class="title-bar">
-                <h1>
-                        <em>scoreboard!</em>
-                </h1>
-            </section>
-        </header>
-        <section class="scoreboard">
-            <div>0</div>
-            <div>-</div>
-            <div>0</div>
-        </section>
-        <section class="buttons">
-            <div>
-                <button>
-                    -
-                </button>
-                <button>
-                    +
-                </button>
-            </div>
-            <div>
-                <button>
-                    reset
-                </button>
-            </div>
-            <div>
-                <button>
-                    -
-                </button>
-                <button>
-                    +
-                </button>
-            </div>
-        </section>
-        <footer>
-            Scoreboard, Inc. © 2020
-        </footer>
-    </body>
+  <head>
+    <title>Counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/sports.html">Sports</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <section class="title-bar">
+        <h1>
+          <em>scoreboard!</em>
+        </h1>
+      </section>
+    </header>
+    <!-- 
+        Consider restructuring things so the buttons related to each score are in the same parent div
+        the buttons wrapper below is vague since  it's unclear which - + buttons correlate to what
+    -->
+    <section class="scoreboard">
+      <div>0</div>
+      <div>-</div>
+      <div>0</div>
+    </section>
+    <section class="buttons">
+      <div>
+        <button>-</button>
+        <button>+</button>
+      </div>
+      <div>
+        <button>reset</button>
+      </div>
+      <div>
+        <!-- Did not need to have this text on a new line. A bit easier to read in one line  -->
+        <button>-</button>
+        <button>+</button>
+      </div>
+    </section>
+    <footer>Scoreboard, Inc. © 2020</footer>
+  </body>
 </html>
