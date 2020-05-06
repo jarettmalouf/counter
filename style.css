@@ -69,25 +69,25 @@ a:hover {
  * inline block works here, but I like using flexbox better than inline block since things can get tricky with 
  * inline block eventually and flexbox is more powerful and declarative.
 */
-.scoreboard div {
+.scoreboard .score, .versus {
+  display: flex;
   font-size: 300px;
   margin: auto;
-  text-align: center;
 }
 
 /* BENJI: in a bigger app, you'd probably have lots of buttons. 
  * Having a more specific classname is good practice, or turn this into a utility function like .buttons-wrapper or .buttons-container
  */
-.buttons {
-  height: 80px;
+.buttons-container {
   border: circle;
-  text-align: center;
-  font-size: 16px;
-  justify-content: center;
   display: flex;
+  font-size: 16px;
+  height: 80px;
+  justify-content: center;
+  text-align: center;
 }
 
-.buttons div {
+.buttons-container div {
   display: inline-block;
   margin: auto;
   text-align: center;
@@ -98,7 +98,7 @@ a:hover {
  * can get an idea of your intent without having to jump around between files. I get there's a buttons wrapper with buttons inside, but the
  * div in the middle is mysterious until i go to the html page.
  */
-.buttons div button {
+.buttons-container button {
   border-radius: 5px;
   margin: 5px;
   height: auto;
@@ -109,19 +109,21 @@ a:hover {
 /* SPORTS */
 
 /* BENJI: The sports class name is a little vague.  */
-.sports ul {
+.sports-list {
   /* height: 200px; BENJI: This height seems unnecessary*/
   text-align: center;
   font-size: 16px;
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   padding: 20px;
 }
 
-.sports figcaption {
+/* .sports-list figcaption { */
   /* position: sticky; BENJI: I don't see a ux change when commenting this out. Why  position sticky here? */
-}
-.sports img {
+/* } */
+
+.sports-list img {
   height: 100px;
   /* width: auto; BENJI: width auto is unnecessary since the height above will determine the width regardless */
 }
@@ -143,7 +145,7 @@ a:hover {
  * What this class is doing is more creating a flex container and centering it. You probably could abstract this
  * into a new class that you could reuse elsewhere like class="centered-row" or something 
 */
-#main-ul {
+.centered-row {
   justify-content: center;
   display: flex;
   padding: 20px;
