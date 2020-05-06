@@ -24,23 +24,26 @@
         the buttons wrapper below is vague since  it's unclear which - + buttons correlate to what
     -->
     <section class="scoreboard">
-      <div class="score">0</div>
-      <div class="versus">-</div>
-      <div class="score">0</div>
-    </section>
-    <section class="buttons-container">
-      <div>
-        <button class="p1 -">-</button>
-        <button class="p1 +">+</button>
-      </div>
-      <div>
-        <button>reset</button>
-      </div>
-      <div>
-        <!-- Did not need to have this text on a new line. A bit easier to read in one line  -->
-        <button class="p2 -">-</button>
-        <button class="p2 +">+</button>
-      </div>
+      <section class="score">
+        <div class="score-num">0</div>
+        <div class="score-changers">
+          <button class="decrement">-</button>
+          <button class="increment">+</button>
+        </div>
+      </section>
+      <section class="score">
+        <div class="versus">-</div>
+        <div class="score-changers">
+          <button class="reset">reset</button>
+        </div>
+      </section>
+      <section class="score">
+        <div class="score-num">0</div>
+        <div class="score-changers">
+          <button class="decrement">-</button>
+          <button class="increment">+</button>
+        </div>
+      </section>
     </section>
     <footer>Scoreboard, Inc. © 2020</footer>
   </body>

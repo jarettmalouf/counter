@@ -1,6 +1,6 @@
 body {
   background: rgb(151, 234, 245);
-  color: rgb(63, 158, 221);
+  color: rgb(47, 179, 240);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin: auto;
   padding: 0;
@@ -69,28 +69,21 @@ a:hover {
  * inline block works here, but I like using flexbox better than inline block since things can get tricky with 
  * inline block eventually and flexbox is more powerful and declarative.
 */
-.scoreboard .score, .versus {
+.scoreboard .score {
   display: flex;
   font-size: 300px;
+  justify-content: center;
   margin: auto;
+  position: relative;
 }
 
 /* BENJI: in a bigger app, you'd probably have lots of buttons. 
  * Having a more specific classname is good practice, or turn this into a utility function like .buttons-wrapper or .buttons-container
  */
-.buttons-container {
-  border: circle;
-  display: flex;
-  font-size: 16px;
-  height: 80px;
-  justify-content: center;
-  text-align: center;
-}
 
-.buttons-container div {
-  display: inline-block;
-  margin: auto;
-  text-align: center;
+.score .score-changers {
+  margin-top: 40px;
+  position: absolute;
 }
 
 /* BENJI: these generic tag selectors like div button are fragile since if you change your div to somethign else,
@@ -98,12 +91,20 @@ a:hover {
  * can get an idea of your intent without having to jump around between files. I get there's a buttons wrapper with buttons inside, but the
  * div in the middle is mysterious until i go to the html page.
  */
-.buttons-container button {
+.score-changers button {
+  background-color: rgb(151, 234, 245);
+  border-color: rgb(47, 179, 240);
   border-radius: 5px;
-  margin: 5px;
-  height: auto;
-  width: auto;
+  box-shadow: 0 1.5px rgb(47, 179, 240);
+  color: rgb(47, 179, 240);
+  cursor: pointer;
   font-size: 25px;
+  margin: -5px;
+}
+
+button:active {
+  outline: none;
+  transform: translateY(1px);
 }
 
 /* SPORTS */
@@ -111,16 +112,16 @@ a:hover {
 /* BENJI: The sports class name is a little vague.  */
 .sports-list {
   /* height: 200px; BENJI: This height seems unnecessary*/
-  text-align: center;
-  font-size: 16px;
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  font-size: 16px;
+  justify-content: center;
   padding: 20px;
+  text-align: center;
 }
 
 /* .sports-list figcaption { */
-  /* position: sticky; BENJI: I don't see a ux change when commenting this out. Why  position sticky here? */
+/* position: sticky; BENJI: I don't see a ux change when commenting this out. Why  position sticky here? */
 /* } */
 
 .sports-list img {
@@ -146,9 +147,9 @@ a:hover {
  * into a new class that you could reuse elsewhere like class="centered-row" or something 
 */
 .centered-row {
-  justify-content: center;
   display: flex;
   padding: 20px;
+  justify-content: center;
 }
 
 figure figcaption {
@@ -167,8 +168,8 @@ figure figcaption {
 /* FOOTER */
 
 footer {
-  padding: 20px;
   background: grey;
   color: white;
+  padding: 20px;
   text-align: center;
 }
